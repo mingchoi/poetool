@@ -1,0 +1,61 @@
+<form class="buildListOptions">
+  <input type="checkbox" id="MarauderCheckbox" ng-change="updateFilteredBuilds()" ng-model="classMarauderEnable"/>
+  <label for="MarauderCheckbox">野蠻人</label>
+  <input type="checkbox" id="DuelistCheckbox" ng-change="updateFilteredBuilds()" ng-model="classDuelistEnable"/>
+  <label for="DuelistCheckbox">決鬥者</label>
+  <input type="checkbox" id="RangerCheckbox" ng-change="updateFilteredBuilds()" ng-model="classRangerEnable"/>
+  <label for="RangerCheckbox">遊俠</label>
+  <input type="checkbox" id="ShadowCheckbox" ng-change="updateFilteredBuilds()" ng-model="classShadowEnable"/>
+  <label for="ShadowCheckbox">暗影刺客</label>
+  <input type="checkbox" id="WitchCheckbox" ng-change="updateFilteredBuilds()" ng-model="classWitchEnable"/>
+  <label for="WitchCheckbox">女巫</label>
+  <input type="checkbox" id="TemplarCheckbox" ng-change="updateFilteredBuilds()" ng-model="classTemplarEnable"/>
+  <label for="TemplarCheckbox">聖堂武僧</label>
+  <input type="checkbox" id="ScionCheckbox" ng-change="updateFilteredBuilds()" ng-model="classScionEnable"/>
+  <label for="ScionCheckbox">貴族</label>
+  <br>
+  <div class="buildListOptionCheckboxs">
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagMelee" id="tagMelee"/><label for="tagMelee">近戰</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagRanged" id="tagRanged"/><label for="tagRanged">遠程</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagSpell" id="tagSpell"/><label for="tagSpell">法術</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagTrap" id="tagTrap"/><label for="tagTrap">陷阱</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagCOC" id="tagCOC"/><label for="tagCOC">爆擊施放</label>
+    <br>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagOneHanded" id="tagOneHanded"/><label for="tagOneHanded">單手</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagTwoHanded" id="tagTwoHanded"/><label for="tagTwoHanded">雙手</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagDualWielding" id="tagDualWielding"/><label for="tagDualWielding">雙持</label>
+    <br>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagPhysical" id="tagPhysical"/><label for="tagPhysical">物理</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagElement" id="tagElement"/><label for="tagElement">元素</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagChaos" id="tagChaos"/><label for="tagChaos">混沌</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagCritical" id="tagCritical"/><label for="tagCritical">暴擊</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagDOT" id="tagDOT"/><label for="tagDOT">持續傷害</label>
+    <br>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagLifeLeech" id="tagLifeLeech"/><label for="tagLifeLeech">吸血</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagLifeRegen" id="tagLifeRegen"/><label for="tagLifeRegen">回血</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagEnergyShield" id="tagEnergyShield"/><label for="tagEnergyShield">能量護盾</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagMultiAura" id="tagMultiAura"/><label for="tagMultiAura">多光環</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagScratch" id="tagScratch"/><label for="tagScratch">白手起家</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tag5LFree" id="tag5LFree"/><label for="tag5LFree">免五連</label>
+    <input type="checkbox" ng-change="updateFilteredBuilds()" ng-model="tagAtziriKill" id="tagAtziriKill"/><label for="tagAtziriKill">可擊殺女王</label>
+  </div>
+  <br>
+  <button class="btn btn-default" onclick="window.open('https://docs.google.com/forms/d/12b-QheKEj2fBODj8tl3W5VhKpIXLu6znI8u1tNMzP3U/viewform')">加入我的Build吧！</button>
+</form>
+
+
+
+
+<br>
+<div style="text-align: center">
+  <span id="filteredBuilds" class="fadeAnimate" ng-repeat="build in filteredBuilds">
+    <div class="buildCard" ng-click="openURL(build.url)" style="background-image: url('{{build.preview}}');background-repeat: no-repeat">
+      <div class="buildName">{{build.name}}</div>
+      <div>
+        <span class="buildClasses" ng-repeat="class in build.classes">{{class}}&nbsp;</span>
+        <span class="buildTags" ng-repeat="tag in build.tags">{{tag}}&nbsp;</span>
+      </div>
+      <div style="clear:both">{{build.summary}}</div>
+    </div>
+  </span>
+</div>
