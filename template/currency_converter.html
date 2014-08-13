@@ -1,0 +1,40 @@
+<center>
+<h1>
+  <input class="CCCurrencyAmount" type="number" ng-model="currencyAmountA" ng-change="updateFrom('A')"/>x
+  <img ng-src="img/currency/78px/{{selectedCurrencyA.name}}.png" />
+  =
+  <input class="CCCurrencyAmount" type="number" ng-model="currencyAmountB" ng-change="updateFrom('B')"/>x
+  <img ng-src="img/currency/78px/{{selectedCurrencyB.name}}.png" />
+</h1>
+<hr>
+<form class="currencySelector">
+  <span class="CSItem" ng-repeat="currency in currencyList | orderBy:'cRate'">
+    <input id="CS{{currency.name}}A" name="selectedCurrencyA" class="CSCB" type="radio" ng-value="currency" ng-model="$parent.selectedCurrencyA" ng-change="updateFrom('B')"/>
+    <label for="CS{{currency.name}}A" style="background-image: url('img/currency/40px/{{currency.name}}.png')"></label>
+  </span>
+</form>
+<div class="currencySelectorColumn"></div>
+<form class="currencySelector">
+  <span class="CSItem" ng-repeat="currency in currencyList | orderBy:'cRate'">
+    <input id="CS{{currency.name}}B" name="selectedCurrencyB" class="CSCB" type="radio" ng-value="currency" ng-model="$parent.selectedCurrencyB" ng-change="updateFrom('A')"/>
+    <label for="CS{{currency.name}}B" style="background-image: url('img/currency/40px/{{currency.name}}.png')"></label>
+  </span>
+</form>
+
+<br>
+<br>
+<br>
+<table class="currencyRateTable">
+  <tr><td class="alignToLeft" colspan="16">兌換比率(混沌石):</td></tr><tr>
+  <td ng-repeat="currency in currencyList | orderBy:'cRate'" ng-hide="currency.name == 'Chaos_Orb'">
+    <img ng-src="img/currency/40px/{{currency.name}}.png" width=30 height=30/>
+  </td>
+  </tr><tr>
+  <td ng-repeat="currency in currencyList | orderBy:'cRate'" ng-hide="currency.name == 'Chaos_Orb'">
+    <input class="currencyRateValueInput" type="text" ng-model="currency.cRate" ng-change="updateFrom(currency.name)"/>
+  </td>
+  </tr><tr><td class="alignToLeft" colspan="16">(兌換比率參考poeex.info，最後更新2014/8/12)</td></tr>
+</tr></table>
+
+
+</center>

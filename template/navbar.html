@@ -2,8 +2,9 @@
   <li class="navbarItem" ng-class="{navbarItemVisiting: visitingDash}" ui-sref="dash"><i class="fa fa-home fa-fw"></i>&nbsp;首頁</li>
   <li class="navbarItem" ng-class="{navbarItemVisiting: visitingBuildList}" ui-sref="buildList"><i class="fa fa-child fa-fw"></i>&nbsp;流派Build分類器</li>
   <li class="navbarItem-disable"><i class="fa fa-institution fa-fw"></i>&nbsp;即時交易配對</li>
-  <li class="navbarItem-disable"><i class="fa fa-cubes fa-fw"></i>&nbsp;通貨換算器</li>
-  <li class="navbarItem-disable"><i class="fa fa-book fa-fw"></i>&nbsp;天賦速查</li>
+  <li class="navbarItem-disable" ng-class="{navbarItemVisiting: visitingCurrencyConverter}"  ui-sref="currencyConverter-ob"><i class="fa fa-cubes fa-fw"></i>&nbsp;通貨換算器</li>
+  <li class="navbarItem-disable"><i class="fa fa-book fa-fw"></i>&nbsp;任務流程</li>
   <li class="navbarItem-disable"><i class="fa fa-gift fa-fw"></i>&nbsp;任務寶石獎勵</li>
-  <li class="navbarItem-disable"><i class="fa fa-users fa-fw"></i>&nbsp;交流頻道</li>
+  <li class="navbarItem" ng-class="{navbarItemVisiting: visitingChatChannel}" ui-sref="chatChannel"><i class="fa fa-users fa-fw"></i>&nbsp;交流頻道</li>
+  <li class="navbarItem" ng-class="{navbarItemVisiting: visitingBroadcast}" ui-sref="broadcast"><i class="fa fa-users fa-gamepad"></i>&nbsp;教學實況</li>
 </ul>
