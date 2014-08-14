@@ -118,8 +118,29 @@ aside {
 .navbarItem-disable:hover {
   background-color: #ddd;
 }
+.navbarItemInfo {
+  display: block;
+  font-size: 14px;
+  line-height: 14px;
+  margin-top: -16px;
+  color: #b0b0b0;
+}
+.navbarItemInfoDark {
+  display: block;
+  font-size: 14px;
+  line-height: 14px;
+  margin-top: -16px;
+  color: #999;
+}
 
-
+.navbarItemBroadcastOnline:before {
+  content: ' ';
+  position: absolute;
+  right: 0;
+  width: 7px;
+  height: 60px;
+  background-color: #0b0;
+}
 
 /*
                 _      _       
