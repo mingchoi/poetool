@@ -49,7 +49,7 @@
 <br>
 <div style="text-align: center">
   <span id="filteredBuilds" class="fadeAnimate" ng-repeat="build in filteredBuilds">
-    <div class="buildCard" ng-click="openURL(build.url)" style="background-image: url('{{build.preview}}');background-repeat: no-repeat">
+    <div class="buildCard" ng-click="openURL(build.url)" style="background-image: url('img/build/preview/{{build.preview}}.jpg');background-repeat: no-repeat">
       <div class="buildName">{{build.name}}</div>
       <div>
         <span class="buildClasses" ng-repeat="class in build.classes">{{class}}&nbsp;</span>

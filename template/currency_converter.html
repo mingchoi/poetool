@@ -1,5 +1,5 @@
 <center>
-  <h1>本工具提供的比率暫時只適用於<b>國際版</b><br>台版比率請於底部填寫交易價格</h1>
+  <h1>本工具提供的比率只供參考，實際價值會因市場變動</h1>
   <h1>
     <input class="CCCurrencyAmount" type="number" ng-model="currencyAmountA" ng-change="updateFrom('A')"/>x
     <img ng-src="img/currency/78px/{{selectedCurrencyA.name}}.png" />
@@ -34,11 +34,8 @@
     <td ng-repeat="currency in currencyList | orderBy:'cRate'" ng-hide="currency.name == 'Chaos_Orb'">
       <input class="currencyRateValueInput" type="text" ng-model="currency.cRate" ng-change="updateFrom(currency.name)"/>
     </td>
-    </tr><tr><td class="alignToLeft" colspan="16">(兌換比率參考poeex.info，最後更新2014/8/12)</td></tr>
+    </tr><tr><td class="alignToLeft" colspan="16">(<a href="http://forum.gamer.com.tw/C.php?bsn=18966&snA=32677" target="_blank">兌換比率參考</a>，最後更新2014/8/30)</td></tr>
   </tr></table>
 
-
-  <br>
-  <iframe src="https://docs.google.com/forms/d/1EU2z4daKtjTnYqNCYKTVC8QVN-6fnxM_l0pFDkFC6Jw/viewform?embedded=true" width="500" height="500" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
 
 </center>

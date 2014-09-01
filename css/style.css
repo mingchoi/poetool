@@ -73,6 +73,7 @@ aside {
   width: 200px;
   overflow-y: auto;
   border-left: 1px solid #ddd;
+  padding: 10px;
 }
 
 
@@ -153,8 +154,28 @@ aside {
                              */
 
 
+.ASWrapper{
+  width: 100%;
+  height: 100%;
+  background-color: #0f0;
+}
 
+.ASUserInfo{
+  background-color: #eee;
+  height: 200px;
+}
 
+.ASNotification{
+  position: absolute;
+  display: inline-block;
+  background-color: #f1f2f4;
+  top: 200px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 
 
 
