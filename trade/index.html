@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<script src="js/angular.min.js"></script>
+		<script src="js/sails.io.js"></script>
+		<script src="js/angular-sails-bind.js"></script>
+		<script src="js/sweet-alert.js"></script>
+		<script src="js/app.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	  <meta charset="utf-8">
+	  <title>POE工具箱 - 即時交易早期測試版</title>
+	</head>
+	<body>
+		<div ng-controller="myCon">
+			<center>
+				<div id="wrapper" style="width: 650px">
+
+
+					<h1>POE工具箱 - 即時交易配對 (早期測試版)</h1>
+					<span>因為伺服器處於不穩定狀態，有可能會隨時發生斷線或資料遺失等錯誤，如有發現請<a href="https://www.facebook.com/poetool/posts/812906392085239" target="_blank">按此回報</a>。另外，裝備交易將於下一次改版開放，現版本只作測試之用，如造成不便敬請原諒。</span>
+					<hr>
+
+				  <h1>請輸入你期望的兌換比率</h1>
+				  <h1>
+				    <input class="CCCurrencyAmount" type="number" ng-model="currencyAmountA" />x
+				    <img ng-src="img/currency/78px/{{selectedCurrencyA.name}}.png" />
+				    =
+				    <input class="CCCurrencyAmount" type="number" ng-model="currencyAmountB" />x
+				    <img ng-src="img/currency/78px/{{selectedCurrencyB.name}}.png" />
+				  </h1>
+				  <hr>
+				  <form class="currencySelector">
+				    <span class="CSItem" ng-repeat="currency in currencyList | orderBy:'cRate'">
+				      <input id="CS{{currency.name}}A" name="selectedCurrencyA" class="CSCB" type="radio" ng-value="currency" ng-model="$parent.selectedCurrencyA" />
+				      <label for="CS{{currency.name}}A" style="background-image: url('img/currency/40px/{{currency.name}}.png')"></label>
+				    </span>
+				  </form>
+				  <div class="currencySelectorColumn"></div>
+				  <form class="currencySelector">
+				    <span class="CSItem" ng-repeat="currency in currencyList | orderBy:'cRate'">
+				      <input id="CS{{currency.name}}B" name="selectedCurrencyB" class="CSCB" type="radio" ng-value="currency" ng-model="$parent.selectedCurrencyB" />
+				      <label for="CS{{currency.name}}B" style="background-image: url('img/currency/40px/{{currency.name}}.png')"></label>
+				    </span>
+				  </form>
+
+					<br>
+					<input id="hugeAmount" type="checkbox" ng-model="hugeAmount"/>
+					<label for="hugeAmount">大量供應</label>
+					<br>
+					<label for="ign" style="color: #f00">角色名稱: </label>
+					<input id="ign" type="text" ng-model="ign" placeholder="請輸入交易用角色名稱" />
+					&nbsp;&nbsp;
+				  <button class="btn btn-primary fa fa-university fa-2x" ng-click="addAndSearch()"> 掛賣並搜尋</button>
+				  <button class="btn btn-info fa fa-search fa-2x" ng-click="searchOnly()"> 搜尋</button>
+
+				  <hr>
+				  <h1>我的出價</h1>
+				  <table class="table table-striped offerTable">
+				  	<tr>
+				  		<th>兌換價</th>
+				  		<th>動作</th>
+					  </tr>
+				  	<tr ng-repeat="offer in myOffers">
+				  		<td>
+				  			<span class="offerQuantity">{{offer.fromQuantity}}x</span>
+						    <img ng-src="img/currency/40px/{{offer.fromItem}}.png" />
+						    <span class="offerQuantity">&gt;</span>
+				  			<span class="offerQuantity">{{offer.toQuantity}}x</span>
+						    <img ng-src="img/currency/40px/{{offer.toItem}}.png" />
+				  		</td>
+				  		<td>
+				  			<button class="btn btn-primary fa fa-search" ng-click="offerSearch(offer.toItem, offer.fromItem)"> 搜尋</button>
+				  			<button class="btn btn-danger fa fa-times" ng-click="offerDelete(offer.id)"> 刪除</button>
+				  		</td>
+				  	</tr>
+				  </table>
+				  <font color="red">掛賣上限: 5</font>
+
+				  <hr>
+				  <h1>其他人的出價</h1>
+				  <table class="table table-striped offerTable">
+				  	<tr>
+				  		<th>兌換價</th>
+				  		<th>聯絡</th>
+				  	</tr>
+						<tr ng-repeat="offer in theirOffers">
+				  		<td>
+				  			<span class="offerQuantity">{{offer.fromQuantity}}x</span>
+						    <img ng-src="img/currency/40px/{{offer.fromItem}}.png" />
+						    <span class="offerQuantity">&gt;</span>
+				  			<span class="offerQuantity">{{offer.toQuantity}}x</span>
+						    <img ng-src="img/currency/40px/{{offer.toItem}}.png" />
+						    <span ng-show="offer.hugeAmount">(大量供應)</span>
+				  		</td>
+				  		<td>
+				  			<button class="btn btn-success fa fa-phone" ng-click="offerTrade(offer)" ng-show="!offer.offerSent"> 交易</button>
+				  			<span>{{offer.status}}</span>
+				  		</td>
+				  	</tr>
+				  </table>
+
+
+
+				</div>
+			</center>
+		</div>
+	</body>
+</html>

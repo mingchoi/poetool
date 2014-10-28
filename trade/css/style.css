@@ -1,0 +1,81 @@
+body {
+  background: #f1f2f4;
+}
+
+.CCCurrencyAmount {
+  width: 120px;
+  text-align: right;
+}
+
+.currencySelector {
+  display: inline-block;
+  width: 260px;
+  text-align: left;
+}
+
+.currencySelectorColumn {
+  display: inline-block;
+  border: 1px solid #e7e7e7;
+  height: 120px;
+  margin: 5px;
+}
+
+.CSCB {
+  display: none;
+}
+
+.CSCB + label {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+.CSCB:checked + label:after {
+  content: ' ';
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 3px solid #cc0;
+}
+
+.currencyRateTable {
+  width: 520px;
+}
+
+.currencyRateValueInput {
+  width: 100%;
+  text-align: center;
+}
+
+.alignToLeft {
+  text-align: left;
+}
+
+
+
+
+
+
+.offerTable tr td, .offerTable tr th {
+  text-align: center;
+}
+
+.offerTable tr td img, .swalOfferImage{
+  vertical-align: text-bottom;
+}
+
+.offerTable tr td {
+  width: 50%;
+}
+
+.offerQuantity {
+  font-size: 28px;
+}
+
+.offerQuantityBig {
+  font-size: 40px;
+}
